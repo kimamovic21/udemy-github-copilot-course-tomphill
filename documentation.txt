@@ -1,0 +1,41 @@
+Udemy Github Copilot Course
+
+
+
+Section 01: Introduction and project setup with GitHub Copilot
+
+01. Introduction
+
+
+02. Udemy ratings & reviews
+
+
+03. Set up local machine with GitHub Copilot
+
+
+04. GH-300 Exam
+
+
+05. IMPORTANT! Read this before you start the course! (GitHub repo etc.)
+
+
+06. GitHub Copilot inline suggestions and next edit suggestions
+
+-update README.md file
+-create documentation.txt file
+-open link: https://github.com/settings/education/benefits
+-open link: https://code.visualstudio.com/docs/copilot/overview
+-open link: https://code.visualstudio.com/docs/copilot/chat/getting-started-chat
+-install VS Code extensions GitHub Copilot and GitHub Copilot chat
+-sign in to your Github account
+-type command: mkdir ghcopilot
+-type command: cd ghcopilot
+-create index.html file
+-in index.html file type <!DOCTYPE html>
+-go to next line and press tab button
+-continue pressing tab button to create HTML elements
+-create script.js file
+-in script.js file invoke function window.onload()
+-in function() add comment for copilot code description
+-press tab to add code
+-create function function getAllLabels()
