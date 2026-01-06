@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bucks2Bar - Income & Expense Tracker</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mb-4">Bucks2Bar</h1>
+      <p class="text-center text-muted mb-4">
+        Track your monthly income and expenses
+      </p>
+
+      <!-- Tabs Navigation -->
+      <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="data-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#data"
+            type="button"
+            role="tab"
+            aria-controls="data"
+            aria-selected="true"
+          >
+            Data
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="chart-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#chart"
+            type="button"
+            role="tab"
+            aria-controls="chart"
+            aria-selected="false"
+          >
+            Chart
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tabs Content -->
+      <div class="tab-content" id="mainTabsContent">
+        <!-- Data Tab -->
+        <div
+          class="tab-pane fade show active"
+          id="data"
+          role="tabpanel"
+          aria-labelledby="data-tab"
+        >
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Monthly Income & Expenses</h5>
+
+              <form id="dataForm">
+                <div class="row mb-3 fw-bold">
+                  <div class="col-md-3">Month</div>
+                  <div class="col-md-4">Income ($)</div>
+                  <div class="col-md-4">Expenses ($)</div>
+                </div>
+
+                <!-- January -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">January</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-jan"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-jan"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- February -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">February</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-feb"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-feb"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- March -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">March</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-mar"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-mar"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- April -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">April</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-apr"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-apr"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- May -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">May</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-may"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-may"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- June -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">June</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-jun"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-jun"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- July -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">July</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-jul"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-jul"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- August -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">August</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-aug"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-aug"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- September -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">September</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-sep"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-sep"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- October -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">October</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-oct"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-oct"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- November -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">November</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-nov"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-nov"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- December -->
+                <div class="row month-row">
+                  <div class="col-md-3">
+                    <label class="form-label">December</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control income-input"
+                      id="income-dec"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="number"
+                      class="form-control expense-input"
+                      id="expense-dec"
+                      min="0"
+                      step="0.01"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+              </form>
+
+              <!-- Summary Row -->
+              <div class="summary-row">
+                <div class="row">
+                  <div class="col-md-3">
+                    <strong>Total:</strong>
+                  </div>
+                  <div class="col-md-4">
+                    <strong class="text-success"
+                      >Income: $<span id="total-income">0.00</span></strong
+                    >
+                  </div>
+                  <div class="col-md-4">
+                    <strong class="text-danger"
+                      >Expenses: $<span id="total-expenses">0.00</span></strong
+                    >
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-md-12">
+                    <strong>Net: $<span id="net-amount">0.00</span></strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart Tab -->
+        <div
+          class="tab-pane fade"
+          id="chart"
+          role="tabpanel"
+          aria-labelledby="chart-tab"
+        >
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Income vs Expenses Chart</h5>
+              <div class="chart-container">
+                <canvas id="financeChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+  </body>
+</html>

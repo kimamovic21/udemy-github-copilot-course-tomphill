@@ -39,3 +39,29 @@ Section 01: Introduction and project setup with GitHub Copilot
 -in function() add comment for copilot code description
 -press tab to add code
 -create function function getAllLabels()
+
+
+07. Introduction to GitHub Copilot chat
+
+-open extension GitHub Copilot Chat
+-select option Set Agent
+-select option Plan
+-select option Pick Model
+-select model Claude Sonnet 4.5
+-select option Add 
+-type command: mkdir bucks2bar
+-type command: cd bucks2bar
+-in GitHub Copilot Chat add your prompt for project
+-read and analyze your prompt
+-answer on agent's questions
+-update your prompt few times
+-click button Start Implementation
+-select option Agent
+-click button Keep or Undo
+-open your folder bucks2bar to see created files by Copilot
+-open each file - index.html, styles.css and script.js
+-open index.html file in your web browser
+-open Github desktop app and create a new branch bucks2bar for this project
+-generate commit message with Copilot
+-click button Commit
+-update README.md file
