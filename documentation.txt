@@ -109,3 +109,17 @@ Section 02: Exploring more GitHub Copilot Chat features
 -open link: https://cursor.com/learn/context
 -open link: https://www.coursera.org/articles/context-window
 -open link: https://zapier.com/blog/context-window/
+
+
+11. Implement login validation with GitHub Copilot inline chat and edit mode
+
+-open Copilot chat and click button Show All Sessions
+-click button New Chat and add a prompt for username and password validation
+-click option Open inline chat
+-select one part of code and add a prompt with instructions
+-open Copilot chat and a prompt for login validation
+-login username: imamovickerim
+-login password: 123456
+-login username: johndoe
+-login password: 123456
+-open index.html file in your web browser 

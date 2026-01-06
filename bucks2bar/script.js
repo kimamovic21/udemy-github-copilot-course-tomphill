@@ -32,6 +32,15 @@ const financialData = {
   expenses: new Array(12).fill(0),
 };
 
+// Dummy authentication credentials
+const AUTH_CREDENTIALS = [
+  { username: "imamovickerim", password: "123456" },
+  { username: "johndoe", password: "123456" },
+];
+
+// Current logged in user
+let currentUser = null;
+
 // Chart instance
 let financeChart = null;
 
@@ -42,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateTotals();
   initializeTheme();
   initializeDownloadButton();
+  initializeAuth();
 });
 
 // Theme management
@@ -162,6 +172,7 @@ function updateDataFromInput(index, type, value) {
 
   updateTotals();
   updateChart();
+  saveUserData();
 }
 
 // Calculate and update totals
@@ -288,4 +299,238 @@ function downloadChartAsPNG() {
     // Trigger download
     link.click();
   }
+}
+
+// Authentication management
+function initializeAuth() {
+  const signInBtn = document.getElementById("signInBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const loginModal = document.getElementById("loginModal");
+  const loginForm = document.getElementById("loginForm");
+  const cancelBtn = document.getElementById("cancelBtn");
+  const usernameInput = document.getElementById("usernameInput");
+  const passwordInput = document.getElementById("passwordInput");
+  const errorMessage = document.getElementById("errorMessage");
+  const userGreeting = document.getElementById("userGreeting");
+
+  // Check if user is already logged in
+  checkAuthStatus();
+
+  // Sign In button click
+  signInBtn.addEventListener("click", function () {
+    loginModal.style.display = "flex";
+    usernameInput.value = "";
+    passwordInput.value = "";
+    errorMessage.style.display = "none";
+  });
+
+  // Cancel button click
+  cancelBtn.addEventListener("click", function () {
+    loginModal.style.display = "none";
+  });
+
+  // Close modal when clicking outside
+  loginModal.addEventListener("click", function (e) {
+    if (e.target === loginModal) {
+      loginModal.style.display = "none";
+    }
+  });
+
+  // Login form submit
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value;
+
+    // Validate credentials
+    const validUser = AUTH_CREDENTIALS.find(
+      (user) => user.username === username && user.password === password
+    );
+
+    if (validUser) {
+      // Store session in localStorage
+      localStorage.setItem(
+        "userSession",
+        JSON.stringify({
+          username: username,
+          loggedIn: true,
+          timestamp: new Date().toISOString(),
+        })
+      );
+
+      // Set current user
+      currentUser = username;
+
+      // Load user data
+      loadUserData(username);
+
+      // Hide modal
+      loginModal.style.display = "none";
+
+      // Show success toast
+      showToast("Login successful!", "#198754");
+
+      // Update UI
+      updateAuthUI(username);
+    } else {
+      // Show error message
+      errorMessage.textContent =
+        "Username or password is wrong. Please try again.";
+      errorMessage.style.display = "block";
+    }
+  });
+
+  // Logout button click
+  logoutBtn.addEventListener("click", function () {
+    // Save user data before logout
+    saveUserData();
+
+    // Remove session from localStorage
+    localStorage.removeItem("userSession");
+
+    // Clear current user
+    currentUser = null;
+
+    // Reset financial data
+    financialData.income = new Array(12).fill(0);
+    financialData.expenses = new Array(12).fill(0);
+
+    // Reset all input fields
+    resetInputFields();
+
+    // Update chart and totals
+    updateChart();
+    updateTotals();
+
+    // Show logout toast
+    showToast("Successfully logged out!", "#198754");
+
+    // Update UI
+    updateAuthUI(null);
+  });
+}
+
+// Check authentication status
+function checkAuthStatus() {
+  const session = localStorage.getItem("userSession");
+
+  if (session) {
+    try {
+      const userData = JSON.parse(session);
+      if (userData.loggedIn) {
+        currentUser = userData.username;
+        loadUserData(userData.username);
+        updateAuthUI(userData.username);
+      }
+    } catch (e) {
+      // Invalid session data, remove it
+      localStorage.removeItem("userSession");
+    }
+  }
+}
+
+// Update authentication UI
+function updateAuthUI(username) {
+  const signInBtn = document.getElementById("signInBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const userGreeting = document.getElementById("userGreeting");
+
+  if (username) {
+    // User is logged in
+    signInBtn.style.display = "none";
+    logoutBtn.style.display = "inline-block";
+    userGreeting.textContent = `Hello ${username}`;
+    userGreeting.style.display = "inline-block";
+  } else {
+    // User is logged out
+    signInBtn.style.display = "inline-block";
+    logoutBtn.style.display = "none";
+    userGreeting.style.display = "none";
+    userGreeting.textContent = "";
+  }
+}
+
+// Show success toast
+function showToast(message, color) {
+  const toast = document.getElementById("successToast");
+  toast.textContent = message;
+  toast.style.backgroundColor = color;
+  toast.style.display = "block";
+
+  // Hide after 3 seconds
+  setTimeout(function () {
+    toast.style.display = "none";
+  }, 3000);
+}
+
+// Save user data to localStorage
+function saveUserData() {
+  if (currentUser) {
+    const userData = {
+      income: financialData.income,
+      expenses: financialData.expenses,
+    };
+    localStorage.setItem(`userData_${currentUser}`, JSON.stringify(userData));
+  }
+}
+
+// Load user data from localStorage
+function loadUserData(username) {
+  const savedData = localStorage.getItem(`userData_${username}`);
+
+  if (savedData) {
+    try {
+      const userData = JSON.parse(savedData);
+      financialData.income = userData.income || new Array(12).fill(0);
+      financialData.expenses = userData.expenses || new Array(12).fill(0);
+    } catch (e) {
+      // Invalid data, use defaults
+      financialData.income = new Array(12).fill(0);
+      financialData.expenses = new Array(12).fill(0);
+    }
+  } else {
+    // No saved data, use defaults
+    financialData.income = new Array(12).fill(0);
+    financialData.expenses = new Array(12).fill(0);
+  }
+
+  // Update input fields with loaded data
+  updateInputFields();
+  updateChart();
+  updateTotals();
+}
+
+// Update input fields with current data
+function updateInputFields() {
+  const incomeInputs = document.querySelectorAll(".income-input");
+  const expenseInputs = document.querySelectorAll(".expense-input");
+
+  incomeInputs.forEach((input, index) => {
+    input.value = financialData.income[index];
+    input.classList.remove("is-invalid");
+    input.classList.add("is-valid");
+  });
+
+  expenseInputs.forEach((input, index) => {
+    input.value = financialData.expenses[index];
+    input.classList.remove("is-invalid");
+    input.classList.add("is-valid");
+  });
+}
+
+// Reset input fields to zero
+function resetInputFields() {
+  const incomeInputs = document.querySelectorAll(".income-input");
+  const expenseInputs = document.querySelectorAll(".expense-input");
+
+  incomeInputs.forEach((input) => {
+    input.value = "0";
+    input.classList.remove("is-valid", "is-invalid");
+  });
+
+  expenseInputs.forEach((input) => {
+    input.value = "0";
+    input.classList.remove("is-valid", "is-invalid");
+  });
 }
