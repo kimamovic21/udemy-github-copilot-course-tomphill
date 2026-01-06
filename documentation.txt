@@ -98,3 +98,14 @@ Section 02: Exploring more GitHub Copilot Chat features
 -open link: https://agents.md 
 -create AGENTS.md file
 -open new Copilot chat for adding a content in AGENTS.md file
+
+
+10. Explanation of the Context window in GitHub Copilot chat
+
+-open link: https://www.ibm.com/think/topics/context-window
+-open link: https://platform.claude.com/docs/en/build-with-claude/context-windows
+-open link: https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-a-context-window
+-open link: https://community.openai.com/t/what-does-context-window-mean-in-the-documentation/566158
+-open link: https://cursor.com/learn/context
+-open link: https://www.coursera.org/articles/context-window
+-open link: https://zapier.com/blog/context-window/
