@@ -87,3 +87,14 @@ Section 02: Exploring more GitHub Copilot Chat features
 -analyze the behavior of the app
 -click button Download to download the image of bar chart
 -if there is a bug try adding prompt in existing chat for Download image feature 
+
+
+09. GitHub Copilot Agent instructions
+
+-open new Copilot chat
+-create button Generate Agent instructions
+-open .github folder and copilot-introductions.md file
+-try adding random commands in copilot-introductions.md file
+-open link: https://agents.md 
+-create AGENTS.md file
+-open new Copilot chat for adding a content in AGENTS.md file
