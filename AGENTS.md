@@ -11,6 +11,9 @@
 - Guide on implementing new financial tracking features
 - Troubleshoot theme switching and dark mode issues
 - Suggest improvements for data visualization
+- Help with Jest testing setup and writing unit tests
+- Debug authentication and login validation issues
+- Assist with localStorage session management
 
 **Usage**: Type `@bucks2bar-helper` in Copilot Chat followed by your question
 
@@ -19,6 +22,9 @@
 - `@bucks2bar-helper how do I add a new chart type?`
 - `@bucks2bar-helper fix the mobile responsive layout`
 - `@bucks2bar-helper add export to CSV functionality`
+- `@bucks2bar-helper help me write tests for the authentication function`
+- `@bucks2bar-helper debug failing Jest tests`
+- `@bucks2bar-helper improve test coverage for calculations`
 
 ---
 
@@ -54,6 +60,9 @@
 - Validate CSS organization and dark theme implementation
 - Suggest accessibility improvements
 - Generate meaningful commit messages
+- Review test coverage and suggest missing tests
+- Analyze Jest test quality and structure
+- Identify untested edge cases
 
 **Usage**: Type `@code-reviewer` in Copilot Chat
 
@@ -62,6 +71,9 @@
 - `@code-reviewer check my script.js file`
 - `@code-reviewer suggest accessibility improvements`
 - `@code-reviewer generate a commit message for my changes`
+- `@code-reviewer analyze test coverage report`
+- `@code-reviewer review my Jest test structure`
+- `@code-reviewer identify missing test cases`
 
 ---
 

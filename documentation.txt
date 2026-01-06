@@ -145,3 +145,21 @@ Section 02: Exploring more GitHub Copilot Chat features
 -type command: npm run test
 -if some tests fail add a new prompt to GitHub Copilot to fix failed tests
 -create .gitignore file to ignore node_modules
+
+
+13. Additional GitHub Copilot chat slash commands + auto approve terminal commands
+
+-type prompt: @workspace /tests
+-add Context: script.js file
+-select the code from script.js so GitHub Copilot knows which part to write tests for
+-click button Keep
+-type command: npm test
+-if some tests fail add a new prompt to GitHub Copilot to fix failed tests
+-copy failed tests from terminal and add them to prompt
+-type prompt: @workspace /tests
+-click button Set Agent
+-select option: Ask
+to prompt
+-type prompt: /explain
+-enable or enable GitHub Copilot to run commands automatically
+-update files copilot-instructions.md, README.md and AGENTS.md
