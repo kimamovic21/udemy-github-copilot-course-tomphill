@@ -1,0 +1,26 @@
+body {
+  background-color: #f8f9fa;
+}
+.container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.month-row {
+  margin-bottom: 1rem;
+}
+.summary-row {
+  background-color: #e9ecef;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 0.375rem;
+}
+.chart-container {
+  position: relative;
+  height: 400px;
+  margin-top: 2rem;
+}
+@media (max-width: 768px) {
+  .chart-container {
+    height: 300px;
+  }
+}

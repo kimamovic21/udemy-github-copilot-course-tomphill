@@ -7,3 +7,7 @@
 ### Projects
 
 #### 01 Github Copilot basics (folder ghcopilot)
+
+#### 02 Bucks 2 Bar (folder bucks2bar)
+
+Original GitHub Repository: [https://github.com/tomphill/newbucks2bar]
