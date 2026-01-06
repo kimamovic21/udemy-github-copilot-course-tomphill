@@ -4,6 +4,7 @@ Udemy Github Copilot Course
 
 Section 01: Introduction and project setup with GitHub Copilot
 
+
 01. Introduction
 
 
@@ -65,3 +66,24 @@ Section 01: Introduction and project setup with GitHub Copilot
 -generate commit message with Copilot
 -click button Commit
 -update README.md file
+-open GitHub desktop app and click button Preview Pull Request
+-open your project on Github and merge branch bucks2bar into main 
+
+
+
+Section 02: Exploring more GitHub Copilot Chat features
+
+
+08. Implement the download chart feature
+
+-implement dark theme feature
+-open existing Copilot Chat and add a prompt for dark theme feature
+-click button Keep 
+-click button New Chat for new project feature
+-add a comment in index.html file for Download button
+-click button Keep
+-open existing files to see changes that Copilot made
+-open index.html file in your web browser
+-analyze the behavior of the app
+-click button Download to download the image of bar chart
+-if there is a bug try adding prompt in existing chat for Download image feature 
