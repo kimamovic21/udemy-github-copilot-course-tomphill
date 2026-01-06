@@ -8,6 +8,51 @@
 
 #### 01 Github Copilot basics (folder ghcopilot)
 
+Simple HTML/JavaScript project demonstrating GitHub Copilot inline suggestions and basic DOM manipulation.
+
 #### 02 Bucks 2 Bar (folder bucks2bar)
 
+Full-featured financial tracker application with:
+
+- Income and expense tracking with monthly data visualization
+- Interactive Chart.js bar chart with customization options
+- Dark/Light theme toggle with localStorage persistence
+- User authentication system with login validation
+- Chart download functionality (PNG export)
+- Responsive Bootstrap 5 design
+- Comprehensive Jest test suite with 100% coverage
+
 Original GitHub Repository: [https://github.com/tomphill/newbucks2bar]
+
+### Testing
+
+The bucks2bar project includes Jest unit tests covering:
+
+- Financial data structure validation
+- Authentication credential checks
+- Input validation functions
+- Total calculations (income, expenses, net amount)
+- Theme management
+- LocalStorage integration
+- Input value handling
+
+**Run tests:**
+
+```bash
+cd bucks2bar
+npm install
+npm test
+```
+
+**Run tests with coverage:**
+
+```bash
+npm run test:coverage
+```
+
+### Login Credentials
+
+**Default users for testing authentication:**
+
+- Username: `imamovickerim` | Password: `123456`
+- Username: `johndoe` | Password: `123456`

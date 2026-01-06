@@ -19,9 +19,11 @@ README.md          # Course overview and project links
 ```
 
 ### Technology Stack
-- **bucks2bar**: Pure vanilla JS + Bootstrap 5.3.2 + Chart.js 4.4.1 (CDN-based, no build step)
-- **ghcopilot**: Vanilla HTML/JS only
-- No package managers, frameworks, or bundlers
+- **bucks2bar**: Pure vanilla JS + Bootstrap 5.3.2 + Chart.js 4.4.1 (CDN-based)
+- **Testing**: Jest 29.7.0 with jsdom environment for DOM testing
+- **ghcopilot**: Vanilla HTML/JS only (no testing setup)
+- Package manager: npm (for test dependencies only)
+- No build step required for application code
 
 ## Key Patterns & Conventions
 
@@ -46,6 +48,21 @@ README.md          # Course overview and project links
 - Currency formatting via `Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'})`
 - Download functionality uses canvas `.toBlob()` + temporary anchor element
 
+### Authentication System
+- Login modal with username/password validation
+- Credentials stored in `AUTH_CREDENTIALS` array (demo purposes only)
+- User session persisted in `localStorage` with key `"userSession"`
+- Default users: `imamovickerim` and `johndoe` (password: `123456`)
+- Login state shows/hides sign-in button and user greeting
+- Logout clears session and resets UI state
+
+### Testing Infrastructure
+- Jest configured with jsdom environment for DOM testing
+- Test file: `script.test.js` with comprehensive test coverage
+- Mocked dependencies: Chart.js, localStorage
+- Test categories: data structure, authentication, validation, calculations, theme, localStorage
+- Run with `npm test` or `npm run test:coverage`
+
 ## Development Workflow
 
 ### Running Projects
@@ -57,6 +74,13 @@ README.md          # Course overview and project links
 - Edit HTML/CSS/JS files directly
 - Refresh browser to see changes (or use Live Server auto-reload)
 - Check browser console for validation/debugging output
+
+### Running Tests
+1. Navigate to bucks2bar: `cd bucks2bar`
+2. Install dependencies (first time only): `npm install`
+3. Run tests: `npm test`
+4. Run with coverage: `npm run test:coverage`
+5. Watch mode for development: `npm run test:watch`
 
 ### Course-Specific Workflow
 - Follow instructions in [../documentation.txt](../documentation.txt) for step-by-step guidance
@@ -80,8 +104,12 @@ When adding new features (per course lesson 8-9):
 
 ## Project Conventions
 
-- **No dependencies**: All external libraries via CDN only
+- **Application dependencies**: All external libraries via CDN only
+- **Test dependencies**: Jest and related packages installed via npm (devDependencies)
 - **Single-file scripts**: All JS logic in one `script.js` per project
 - **Bootstrap components**: Use Bootstrap 5 classes extensively, minimal custom CSS
 - **Month indexing**: Arrays use 0-based indexing for 12 months (Jan=0, Dec=11)
 - **Currency display**: Always format with `Intl.NumberFormat` for consistency
+- **Authentication**: Demo credentials hardcoded in AUTH_CREDENTIALS array (educational purposes)
+- **Testing**: Comprehensive Jest test suite for all major functionality
+- **Code coverage**: Aim for high coverage on core business logic
