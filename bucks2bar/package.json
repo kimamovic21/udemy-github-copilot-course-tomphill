@@ -1,0 +1,22 @@
+{
+  "name": "udemy-github-copilot-course",
+  "version": "1.0.0",
+  "description": "Udemy GitHub Copilot Course Projects",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "github-copilot",
+    "udemy",
+    "jest",
+    "testing"
+  ],
+  "author": "Kerim Imamovic",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}

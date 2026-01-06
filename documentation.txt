@@ -123,3 +123,25 @@ Section 02: Exploring more GitHub Copilot Chat features
 -login username: johndoe
 -login password: 123456
 -open index.html file in your web browser 
+
+
+12. Set up and create unit tests with Github Copilot chat slash commands
+
+-open link: https://nodejs.org/en
+-click button New Chat
+-click @ on keyboard
+-click / on keyboard
+-type: @workspace /setupTests in your prompt
+-click option Set Agent: Plan
+-add Context: script.js file
+-choose option Jest
+-add VS Code extension Jest
+-click button Start Implementation
+-click button Allow
+-click button Keep
+-open created files: package.json, jest.config.js and script.test.js
+-open terminal to see tests that will pass
+-type command: npm i
+-type command: npm run test
+-if some tests fail add a new prompt to GitHub Copilot to fix failed tests
+-create .gitignore file to ignore node_modules
