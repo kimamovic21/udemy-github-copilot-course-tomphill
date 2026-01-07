@@ -243,3 +243,16 @@ Section 03: GitHub Copilot Chat for full stack app development (vibe coding)
 -click option Prompt files
 -create file create-instructions.prompt.md file
 -update create-instructions.prompt.md file
+
+
+18. Generate instructions files with new custom agent and prompt
+
+-open Copilot chat
+-type /create-instructions
+-type instructions for Clerk auth
+-check folder docs and authentication.md file
+-update authentication.md file
+-open new Copilot chat
+-type /create-instructions
+-type instructions for using Shadcn UI components
+-update AGENTS.md file
