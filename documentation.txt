@@ -227,3 +227,19 @@ Section 03: GitHub Copilot Chat for full stack app development (vibe coding)
 -type command: npm run dev
 -open route: http://localhost:3000
 -open GitHub desktop and generate commit message
+
+
+17. Create custom agents and custom prompts for GitHub Copilot chat
+
+-create new AGENTS.md files
+-create new .github folders in existing projects
+-create folder docs with .md files
+-open Copilot chat
+-click button Set Agent
+-click button Configure Custom Agent
+-create instructions-generator.agent.md file
+-open instructions-generator.agent.md file and click button Configure tools
+-open Copilot chat and click button Configure Chat
+-click option Prompt files
+-create file create-instructions.prompt.md file
+-update create-instructions.prompt.md file
