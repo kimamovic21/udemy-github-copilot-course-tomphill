@@ -8,6 +8,9 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs';
+import { ThemeProvider } from '../components/theme/theme-provider';
+import { ModeToggle } from '../components/theme/mode-toggle';
+import { Button } from '../components/ui/button';
 import './globals.css';
 
 const geistSans = Geist({
@@ -32,23 +35,35 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang='en'>
+      <html lang='en' suppressHydrationWarning>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <header className='border-b'>
-            <nav className='container mx-auto px-4 py-4 flex justify-between items-center'>
-              <h1 className='text-xl font-bold'>Link Shortener</h1>
-              <div className='flex items-center gap-4'>
-                <SignedOut>
-                  <SignInButton mode='modal' />
-                  <SignUpButton mode='modal' />
-                </SignedOut>
-                <SignedIn>
-                  <UserButton />
-                </SignedIn>
-              </div>
-            </nav>
-          </header>
-          {children}
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            disableTransitionOnChange
+          >
+            <header className='border-b'>
+              <nav className='container mx-auto px-4 py-4 flex justify-between items-center'>
+                <h1 className='text-xl font-bold'>Link Shortener</h1>
+                <div className='flex items-center gap-4'>
+                  <ModeToggle />
+                  <SignedOut>
+                    <SignInButton mode='modal'>
+                      <Button variant='outline'>Sign In</Button>
+                    </SignInButton>
+                    <SignUpButton mode='modal'>
+                      <Button>Sign Up</Button>
+                    </SignUpButton>
+                  </SignedOut>
+                  <SignedIn>
+                    <UserButton />
+                  </SignedIn>
+                </div>
+              </nav>
+            </header>
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

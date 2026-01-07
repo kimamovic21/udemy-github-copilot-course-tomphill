@@ -256,3 +256,24 @@ Section 03: GitHub Copilot Chat for full stack app development (vibe coding)
 -type /create-instructions
 -type instructions for using Shadcn UI components
 -update AGENTS.md file
+
+
+19. Implement dashboard page + UI tweaks guided by GitHub Copilot instructions
+
+-click button New Chat
+-add prompt for creating Dashboard
+-open folder dashboard/page.tsx
+-open route: http://localhost:3000
+-open route: http://localhost:3000/dashboard
+-update prompt for auth
+-open route: http://localhost:3000/dashboard
+-open Clerk service and select option Configure
+-disable options Email verification code and Client Trust
+-open component layout.tsx to see update
+-open route: http://localhost:3000 and sign with random credentials
+-open route: http://localhost:3000/dashboard
+-update prompt for auth
+-open new chat and add a prompt for dark mode
+-explore created folder and files
+-press on your keyboard: ctrl shift p to open Simple browser
+-open route: http://localhost:3000
