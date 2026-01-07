@@ -1,4 +1,4 @@
-# Custom GitHub Copilot Agents
+# Custom GitHub Copilot Agents (bucks2bar)
 
 ## @bucks2bar-helper
 
@@ -79,10 +79,9 @@
 
 ## How to Use This File
 
-1. **Invoke agents** in Copilot Chat by typing `@agent-name` followed by your question
-2. **Customize agents** by editing their descriptions and capabilities
-3. **Add new agents** by following the same structure above
-4. **Experiment** with different agent types for different project needs
+1. Invoke agents in Copilot Chat by typing `@agent-name` followed by your question
+2. Customize agents by editing their descriptions and capabilities
+3. Add new agents by following the same structure above
 
 ## Learn More
 
