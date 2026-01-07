@@ -163,3 +163,67 @@ to prompt
 -type prompt: /explain
 -enable or enable GitHub Copilot to run commands automatically
 -update files copilot-instructions.md, README.md and AGENTS.md
+
+
+
+Section 03: GitHub Copilot Chat for full stack app development (vibe coding)
+
+
+14. Project introduction
+
+
+15. Stack overview
+
+-Typescript
+-Next.js
+-Shadcn ui + Tailwind CSS
+-Postgres DB on Neon
+-Drizzle ORM
+-Clerk for auth
+-zod
+
+
+16. Setup Next.js project
+
+-open link: https://nextjs.org
+-type command: npx create-next-app@latest link-shortener
+-type command: cd link-shortener
+-type command: npm run dev
+-open route: http://localhost:3000
+-open link: https://ui.shadcn.com
+-open link: https://ui.shadcn.com/docs/installation/next
+-type command: npx shadcn@latest init
+-open link: https://clerk.com
+-open link: https://www.npmjs.com/package/@clerk/nextjs
+-create new application link-shortener-2026
+-select option email
+-click button Copy prompt
+-click button New Chat
+-add your prompt from Clerk to the GitHub Copilot chat
+-explore created files
+-in .env file create variables: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY
+-create example.env file
+-rename middleware.ts file to proxy.ts file
+-open link: https://neon.com
+-create new project Link Shortener 2026
+-open link: https://orm.drizzle.team
+-open link: https://orm.drizzle.team/docs/get-started/neon-new
+-open link: https://www.npmjs.com/package/drizzle-orm
+-open link: https://www.npmjs.com/package/@neondatabase/serverless
+-open link: https://www.npmjs.com/package/dotenv
+-type command: npm i drizzle-orm @neondatabase/serverless dotenv
+-open link: https://www.npmjs.com/package/drizzle-kit
+-open link: https://www.npmjs.com/package/tsx
+-type command: npm i -D drizzle-kit tsx
+-in .env file create variable DATABASE_URL
+-add database connection string hosted on NEON service
+-create folder db and index.ts file
+-in index.ts file add code from documentation
+-create drizzle.config.ts file and add code from documentation
+-in folder db create schema.ts file
+-open link: https://prettier.io
+-click button New Chat add a prompt for prettier setup
+-open .prettierrc and .prettierignore files to see code that was generated
+-type command: npm run dev
+-open route: http://localhost:3000
+-open GitHub desktop and generate commit message
