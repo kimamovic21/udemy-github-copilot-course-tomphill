@@ -303,3 +303,27 @@ Section 03: GitHub Copilot Chat for full stack app development (vibe coding)
 -update font in component layout.tsx
 -merge two branches
 -open route: http://localhost:3000
+
+
+22. Orchestrating Cloud Agents and Background Agents
+
+-in folder app add favicon icons
+-update favicon.ico app logo
+-open link: https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/coding-agent/about-coding-agent
+-open link: https://clerk.com/docs/nextjs/guides/customizing-clerk/appearance-prop/themes
+-open link: https://www.npmjs.com/package/@clerk/themes
+-type command: npm i @clerk/themes
+-open your project on GitHub and click button New issue
+-add a title and description
+-click button Create
+-click button Assign to Copilot
+-add a prompt to make Clerk components display dark mode
+-choose repository, branch and Agent
+-click button Assign
+-click on newly create pull request
+-click button View Session
+-check newly created branch for this task
+-merge newly created branch with branch main
+-open GitHub Copilot chat and a prompt to remove Learn more button from landing page
+-open component page.tsx to see changes
+-open route: http://localhost:3000
