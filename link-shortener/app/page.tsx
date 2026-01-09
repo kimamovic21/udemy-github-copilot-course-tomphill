@@ -1,13 +1,7 @@
 import React from 'react';
 import { SignUpButton } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Link2, BarChart3, Lock, Share2 } from 'lucide-react';
 
 const HomePage = () => {
@@ -15,11 +9,12 @@ const HomePage = () => {
     <main className='min-h-screen'>
       {/* Hero Section */}
       <section className='container mx-auto px-4 py-20 text-center'>
-        <h1 className='text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
+        <h1 className='text-5xl md:text-6xl font-bold mb-6 bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
           Shorten Your Links, Amplify Your Reach
         </h1>
         <p className='text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto'>
-          Create short, memorable links in seconds. Track performance, manage your URLs, and share with confidence.
+          Create short, memorable links in seconds. Track performance, manage your URLs, and share
+          with confidence.
         </p>
         <div className='flex gap-4 justify-center'>
           <SignUpButton mode='modal'>
@@ -123,7 +118,7 @@ const HomePage = () => {
 
       {/* CTA Section */}
       <section className='container mx-auto px-4 py-20'>
-        <Card className='bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0'>
+        <Card className='bg-linear-to-r from-blue-600 to-purple-600 text-white border-0'>
           <CardHeader className='text-center'>
             <CardTitle className='text-3xl md:text-4xl text-white mb-4'>
               Ready to Get Started?
