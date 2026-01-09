@@ -327,3 +327,22 @@ Section 03: GitHub Copilot Chat for full stack app development (vibe coding)
 -open GitHub Copilot chat and a prompt to remove Learn more button from landing page
 -open component page.tsx to see changes
 -open route: http://localhost:3000
+
+
+
+Section 04: Database interactions with GitHub Copilot chat
+
+
+23. Generate db table schema with GitHub Copilot chat
+
+-create folder favicon
+-open Copilot chat
+-set Agent: Plan
+-add a prompt for a very simple table schema to store shortened links
+-update your prompt
+-click button Start Implementation
+-open schema.ts file 
+-open folder drizzle
+-update your prompt
+-explore updated files
+-open your project Link Shortener 2026 on Neon service
