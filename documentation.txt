@@ -346,3 +346,17 @@ Section 04: Database interactions with GitHub Copilot chat
 -update your prompt
 -explore updated files
 -open your project Link Shortener 2026 on Neon service
+
+
+24. Generate seed data with GitHub Copilot chat and insert into db with MCP
+
+-install VS Code Neon MCP server extension
+-open settings: User settings
+-type chat gallery
+-click Enable checkbox
+-click button New chat
+-add a prompt to list all the projects in Neon account
+-add a prompt to generate 10 example links for user in project Link Shortener 2026
+-click button Allow
+-open files seed.ts and package.json
+-open your project on Neon service to see created data
