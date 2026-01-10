@@ -8,6 +8,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs';
+import { dark } from '@clerk/themes';
 import { ThemeProvider } from '../components/theme/theme-provider';
 import { ModeToggle } from '../components/theme/mode-toggle';
 import { Button } from '../components/ui/button';
@@ -30,7 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang='en' suppressHydrationWarning>
         <body className={`${poppins.variable} antialiased`}>
           <ThemeProvider
