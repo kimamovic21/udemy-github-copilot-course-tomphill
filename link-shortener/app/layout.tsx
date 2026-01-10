@@ -12,6 +12,8 @@ import { dark } from '@clerk/themes';
 import { ThemeProvider } from '../components/theme/theme-provider';
 import { ModeToggle } from '../components/theme/mode-toggle';
 import { Button } from '../components/ui/button';
+import { Toaster } from '../components/ui/sonner';
+import { AuthToaster } from '../components/auth-toaster';
 import './globals.css';
 
 const poppins = Poppins({
@@ -63,6 +65,8 @@ export default function RootLayout({
                 </div>
               </nav>
             </header>
+            <AuthToaster />
+            <Toaster />
             {children}
           </ThemeProvider>
         </body>

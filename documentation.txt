@@ -360,3 +360,18 @@ Section 04: Database interactions with GitHub Copilot chat
 -click button Allow
 -open files seed.ts and package.json
 -open your project on Neon service to see created data
+
+
+25. Fix redirect issue + update agent instructions
+
+-click new Chat 
+-add a prompt for redirecting to /dashboard route after successful login
+-click button Keep
+-open link: https://ui.shadcn.com/docs/components/sonner
+-type command: npx shadcn@latest add sonner
+-click new Chat
+-add a prompt for sonner toast appearance
+-click button Keep
+-open files sonner.tsx and auth-sonner.tsx
+-open route: http://localhost:3000
+-open route: http://localhost:3000/dashboard
