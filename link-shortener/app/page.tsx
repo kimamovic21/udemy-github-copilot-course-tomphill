@@ -1,10 +1,18 @@
 import React from 'react';
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
 import { SignUpButton } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Link2, BarChart3, Lock, Share2 } from 'lucide-react';
 
-const HomePage = () => {
+const HomePage = async () => {
+  const { userId } = await auth();
+
+  if (userId) {
+    redirect('/dashboard');
+  }
+
   return (
     <main className='min-h-screen'>
       {/* Hero Section */}
