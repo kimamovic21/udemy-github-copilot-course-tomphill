@@ -418,3 +418,12 @@ Section 04: Database interactions with GitHub Copilot chat
 -edit your link
 -delete your link
 -update your prompt for creating link
+
+
+30. Implement redirect functionality
+
+-click button New Chat
+-add a prompt for short link redirection
+-explore created folder and file
+-open route: http://localhost:3000/dashboard and click random link
+-after clicking you should be redirected to the original link

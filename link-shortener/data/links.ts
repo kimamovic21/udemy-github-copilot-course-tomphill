@@ -69,16 +69,24 @@ export async function updateLink(
 }
 
 /**
+ * Fetches a link by its short code
+ * @param shortCode - The short code to look up
+ * @returns The link if found, null otherwise
+ */
+export async function getLinkByShortCode(shortCode: string): Promise<Link | null> {
+  const [link] = await db.select().from(links).where(eq(links.shortCode, shortCode)).limit(1);
+
+  return link || null;
+}
+
+/**
  * Deletes a link for a user
  * @param linkId - The ID of the link to delete
  * @param userId - The authenticated user's ID (for verification)
  * @returns The deleted link
  */
 export async function deleteLink(linkId: number, userId: string): Promise<Link> {
-  const [deletedLink] = await db
-    .delete(links)
-    .where(eq(links.id, linkId))
-    .returning();
+  const [deletedLink] = await db.delete(links).where(eq(links.id, linkId)).returning();
 
   return deletedLink;
 }
