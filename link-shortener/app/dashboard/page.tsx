@@ -1,13 +1,8 @@
 import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
-import { eq } from 'drizzle-orm';
-import { db } from '@/db';
-import { links } from '@/db/schema';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-
-const getUserLinks = async (userId: string) => {
-  return await db.select().from(links).where(eq(links.userId, userId));
-};
+import { CreateLinkDialog } from './create-link-dialog';
+import { getUserLinks } from '@/data/links';
 
 const DashboardPage = async () => {
   const { userId } = await auth();
@@ -20,9 +15,12 @@ const DashboardPage = async () => {
 
   return (
     <main className='container mx-auto p-8'>
-      <div className='mb-8'>
-        <h1 className='text-3xl font-bold mb-2'>Dashboard</h1>
-        <p className='text-muted-foreground'>Manage your shortened links</p>
+      <div className='mb-8 flex items-center justify-between'>
+        <div>
+          <h1 className='text-3xl font-bold mb-2'>Dashboard</h1>
+          <p className='text-muted-foreground'>Manage your shortened links</p>
+        </div>
+        <CreateLinkDialog />
       </div>
 
       {userLinks.length === 0 ? (
