@@ -13,7 +13,7 @@ import { ThemeProvider } from '../components/theme/theme-provider';
 import { ModeToggle } from '../components/theme/mode-toggle';
 import { Button } from '../components/ui/button';
 import { Toaster } from '../components/ui/sonner';
-import { AuthToaster } from '../components/auth-toaster';
+import { AuthToaster } from '../components/auth/auth-toaster';
 import './globals.css';
 
 const poppins = Poppins({

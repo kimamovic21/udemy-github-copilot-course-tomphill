@@ -40,3 +40,45 @@ export async function createLink(
 
   return createdLink;
 }
+
+/**
+ * Updates an existing link for a user
+ * @param linkId - The ID of the link to update
+ * @param userId - The authenticated user's ID (for verification)
+ * @param originalUrl - The new URL to shorten
+ * @param shortCode - The new short code
+ * @returns The updated link
+ */
+export async function updateLink(
+  linkId: number,
+  userId: string,
+  originalUrl: string,
+  shortCode: string
+): Promise<Link> {
+  const [updatedLink] = await db
+    .update(links)
+    .set({
+      originalUrl,
+      shortCode,
+      updatedAt: new Date(),
+    })
+    .where(eq(links.id, linkId))
+    .returning();
+
+  return updatedLink;
+}
+
+/**
+ * Deletes a link for a user
+ * @param linkId - The ID of the link to delete
+ * @param userId - The authenticated user's ID (for verification)
+ * @returns The deleted link
+ */
+export async function deleteLink(linkId: number, userId: string): Promise<Link> {
+  const [deletedLink] = await db
+    .delete(links)
+    .where(eq(links.id, linkId))
+    .returning();
+
+  return deletedLink;
+}

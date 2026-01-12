@@ -1,74 +1,58 @@
 import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
+import { getUserLinks } from '@/data/links';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { CreateLinkDialog } from './create-link-dialog';
-import { getUserLinks } from '@/data/links';
+import { EditLinkDialog } from './edit-link-dialog';
+import { DeleteLinkDialog } from './delete-link-dialog';
 
-const DashboardPage = async () => {
+export default async function DashboardPage() {
   const { userId } = await auth();
 
   if (!userId) {
     redirect('/');
   }
 
-  const userLinks = await getUserLinks(userId);
+  const links = await getUserLinks(userId);
 
   return (
-    <main className='container mx-auto p-8'>
-      <div className='mb-8 flex items-center justify-between'>
-        <div>
-          <h1 className='text-3xl font-bold mb-2'>Dashboard</h1>
-          <p className='text-muted-foreground'>Manage your shortened links</p>
-        </div>
+    <div className='container mx-auto py-8'>
+      <div className='flex items-center justify-between mb-8'>
+        <h1 className='text-3xl font-bold'>My Links</h1>
         <CreateLinkDialog />
       </div>
 
-      {userLinks.length === 0 ? (
+      {links.length === 0 ? (
         <Card>
-          <CardHeader>
-            <CardTitle>No links yet</CardTitle>
-            <CardDescription>Create your first shortened link to get started</CardDescription>
-          </CardHeader>
+          <CardContent className='pt-6'>
+            <p className='text-muted-foreground text-center'>You have not created any links yet.</p>
+          </CardContent>
         </Card>
       ) : (
         <div className='grid gap-4'>
-          {userLinks.map((link) => (
+          {links.map((link) => (
             <Card key={link.id}>
               <CardHeader>
-                <CardTitle className='text-lg font-medium break-all'>{link.shortCode}</CardTitle>
-                <CardDescription className='break-all'>{link.originalUrl}</CardDescription>
+                <div className='flex items-start justify-between'>
+                  <div className='flex-1 min-w-0'>
+                    <CardTitle className='text-xl break-all'>{link.shortCode}</CardTitle>
+                    <CardDescription className='break-all'>{link.originalUrl}</CardDescription>
+                  </div>
+                  <div className='flex items-center gap-2 ml-4'>
+                    <EditLinkDialog link={link} />
+                    <DeleteLinkDialog linkId={link.id} shortCode={link.shortCode} />
+                  </div>
+                </div>
               </CardHeader>
               <CardContent>
-                <div className='flex flex-col gap-2 text-sm text-muted-foreground'>
-                  <div>
-                    <span className='font-medium'>Short URL:</span>{' '}
-                    <a
-                      href={`/${link.shortCode}`}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-primary hover:underline'
-                    >
-                      {`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/${
-                        link.shortCode
-                      }`}
-                    </a>
-                  </div>
-                  <div>
-                    <span className='font-medium'>Created:</span>{' '}
-                    {new Date(link.createdAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </div>
+                <div className='flex items-center gap-4 text-sm text-muted-foreground'>
+                  <span>Created: {link.createdAt.toLocaleDateString()}</span>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
       )}
-    </main>
+    </div>
   );
-};
-
-export default DashboardPage;
+}
