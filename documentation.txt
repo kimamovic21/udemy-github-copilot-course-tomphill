@@ -427,3 +427,10 @@ Section 04: Database interactions with GitHub Copilot chat
 -explore created folder and file
 -open route: http://localhost:3000/dashboard and click random link
 -after clicking you should be redirected to the original link
+
+
+Code refactoring + README.md file update
+
+-update README.md for for project link-shortener
+-refactor Tailwind CSS classes in tsx components
+-in dialog components import function toast

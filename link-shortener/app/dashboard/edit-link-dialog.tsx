@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'sonner';
+import { Pencil } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -14,7 +16,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { updateLink } from './actions';
-import { Pencil } from 'lucide-react';
 import type { Link } from '@/db/schema';
 
 interface EditLinkDialogProps {
@@ -26,30 +27,29 @@ export function EditLinkDialog({ link }: EditLinkDialogProps) {
   const [url, setUrl] = useState(link.originalUrl);
   const [customSlug, setCustomSlug] = useState(link.shortCode);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setSuccess(false);
     setLoading(true);
 
     try {
       const result = await updateLink({ linkId: link.id, url, customSlug });
 
       if (result.error) {
-        setError(result.error);
+        toast.error('Failed to update link', {
+          description: result.error,
+        });
       } else if (result.success) {
-        setSuccess(true);
-        // Close dialog after a brief delay to show success state
-        setTimeout(() => {
-          setOpen(false);
-          setSuccess(false);
-        }, 1000);
+        toast.success('Link updated successfully!', {
+          description: 'Your changes have been saved.',
+        });
+        setOpen(false);
       }
-    } catch (err) {
-      setError('An unexpected error occurred');
+    } catch (error) {
+      console.error(error);
+      toast.error('An unexpected error occurred', {
+        description: 'Please try again later.',
+      });
     } finally {
       setLoading(false);
     }
@@ -61,8 +61,6 @@ export function EditLinkDialog({ link }: EditLinkDialogProps) {
       // Reset form state when closing
       setUrl(link.originalUrl);
       setCustomSlug(link.shortCode);
-      setError('');
-      setSuccess(false);
     }
   };
 
@@ -73,7 +71,7 @@ export function EditLinkDialog({ link }: EditLinkDialogProps) {
           <Pencil className='h-4 w-4' />
         </Button>
       </DialogTrigger>
-      <DialogContent className='sm:max-w-[525px]'>
+      <DialogContent className='sm:max-w-131.25'>
         <DialogHeader>
           <DialogTitle>Edit Link</DialogTitle>
           <DialogDescription>
@@ -111,16 +109,6 @@ export function EditLinkDialog({ link }: EditLinkDialogProps) {
                 Letters, numbers, hyphens, and underscores only
               </p>
             </div>
-            {error && (
-              <div className='text-sm text-red-500 bg-red-50 border border-red-200 rounded p-3'>
-                {error}
-              </div>
-            )}
-            {success && (
-              <div className='text-sm text-green-600 bg-green-50 border border-green-200 rounded p-3'>
-                Link updated successfully!
-              </div>
-            )}
           </div>
           <DialogFooter>
             <Button
