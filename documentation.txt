@@ -392,3 +392,16 @@ Section 04: Database interactions with GitHub Copilot chat
 -open folder .github and create folder instructions
 -update instructions in .md files
 -delete folder docs
+
+
+28. Implement create link functionality
+
+-open New Copilot chat
+-open link: https://ui.shadcn.com/docs/components/dialog
+-type command: npx shadcn@latest add dialog
+-open link: https://ui.shadcn.com/docs/components/form
+-type command: npx shadcn@latest add form
+-add a prompt for creating link functionality
+-explore created and updated files
+-open route: http://localhost:3000/dashboard
+-update your prompt for creating link
