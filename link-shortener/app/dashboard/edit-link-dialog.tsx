@@ -13,13 +13,18 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { createLink } from './actions';
-import { Plus } from 'lucide-react';
+import { updateLink } from './actions';
+import { Pencil } from 'lucide-react';
+import type { Link } from '@/db/schema';
 
-export function CreateLinkDialog() {
+interface EditLinkDialogProps {
+  link: Link;
+}
+
+export function EditLinkDialog({ link }: EditLinkDialogProps) {
   const [open, setOpen] = useState(false);
-  const [url, setUrl] = useState('');
-  const [customSlug, setCustomSlug] = useState('');
+  const [url, setUrl] = useState(link.originalUrl);
+  const [customSlug, setCustomSlug] = useState(link.shortCode);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -31,15 +36,12 @@ export function CreateLinkDialog() {
     setLoading(true);
 
     try {
-      const result = await createLink({ url, customSlug });
+      const result = await updateLink({ linkId: link.id, url, customSlug });
 
       if (result.error) {
         setError(result.error);
       } else if (result.success) {
         setSuccess(true);
-        // Reset form
-        setUrl('');
-        setCustomSlug('');
         // Close dialog after a brief delay to show success state
         setTimeout(() => {
           setOpen(false);
@@ -57,8 +59,8 @@ export function CreateLinkDialog() {
     setOpen(newOpen);
     if (!newOpen) {
       // Reset form state when closing
-      setUrl('');
-      setCustomSlug('');
+      setUrl(link.originalUrl);
+      setCustomSlug(link.shortCode);
       setError('');
       setSuccess(false);
     }
@@ -67,16 +69,15 @@ export function CreateLinkDialog() {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <Button>
-          <Plus className='mr-2 h-4 w-4' />
-          Create Link
+        <Button variant='outline' size='sm'>
+          <Pencil className='h-4 w-4' />
         </Button>
       </DialogTrigger>
       <DialogContent className='sm:max-w-[525px]'>
         <DialogHeader>
-          <DialogTitle>Create Shortened Link</DialogTitle>
+          <DialogTitle>Edit Link</DialogTitle>
           <DialogDescription>
-            Enter a URL to shorten. You can optionally provide a custom slug.
+            Update the URL or custom slug for this shortened link.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit}>
@@ -94,9 +95,7 @@ export function CreateLinkDialog() {
               />
             </div>
             <div className='grid gap-2'>
-              <Label htmlFor='customSlug'>
-                Custom Slug <span className='text-muted-foreground'>(Optional)</span>
-              </Label>
+              <Label htmlFor='customSlug'>Custom Slug</Label>
               <Input
                 id='customSlug'
                 type='text'
@@ -109,7 +108,7 @@ export function CreateLinkDialog() {
                 maxLength={20}
               />
               <p className='text-sm text-muted-foreground'>
-                Leave empty to auto-generate a short code
+                Letters, numbers, hyphens, and underscores only
               </p>
             </div>
             {error && (
@@ -119,7 +118,7 @@ export function CreateLinkDialog() {
             )}
             {success && (
               <div className='text-sm text-green-600 bg-green-50 border border-green-200 rounded p-3'>
-                Link created successfully!
+                Link updated successfully!
               </div>
             )}
           </div>
@@ -133,7 +132,7 @@ export function CreateLinkDialog() {
               Cancel
             </Button>
             <Button type='submit' disabled={loading}>
-              {loading ? 'Creating...' : 'Create Link'}
+              {loading ? 'Updating...' : 'Update Link'}
             </Button>
           </DialogFooter>
         </form>

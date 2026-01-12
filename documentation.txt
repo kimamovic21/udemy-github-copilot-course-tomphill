@@ -402,6 +402,19 @@ Section 04: Database interactions with GitHub Copilot chat
 -open link: https://ui.shadcn.com/docs/components/form
 -type command: npx shadcn@latest add form
 -add a prompt for creating link functionality
+-click button Keep
 -explore created and updated files
 -open route: http://localhost:3000/dashboard
+-create new link
+-update your prompt for creating link
+
+
+29. Implement edit link and delete link functionality
+
+-click button New Chat
+-add a prompt for editing and deleting links
+-click button Keep
+-open route: http://localhost:3000/dashboard
+-edit your link
+-delete your link
 -update your prompt for creating link
