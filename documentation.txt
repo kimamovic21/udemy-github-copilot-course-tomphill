@@ -385,3 +385,10 @@ Section 04: Database interactions with GitHub Copilot chat
 -create variable const userLinks
 -in jsx add card components and elements with Tailwind CSS classes
 -open route: http://localhost:3000/dashboard
+
+
+27. Convert old docs files to new GitHub Copilot instructions files
+
+-open folder .github and create folder instructions
+-update instructions in .md files
+-delete folder docs

@@ -1,3 +1,7 @@
+---
+description: Read this before implementing or modifying authentication in the project.
+---
+
 # Authentication Guidelines
 
 This document provides specific guidelines for implementing and working with authentication in this project.
@@ -81,7 +85,7 @@ import { SignInButton, SignUpButton } from "@clerk/nextjs";
 </SignUpButton>
 ```
 
-### DO NOT
+### DO NOT:
 
 - Create custom authentication forms
 - Implement password validation or storage
@@ -99,7 +103,7 @@ import { SignInButton, SignUpButton } from "@clerk/nextjs";
 
 Required in `.env.local`:
 
-```env
+```
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_...
 CLERK_SECRET_KEY=sk_...
 ```
