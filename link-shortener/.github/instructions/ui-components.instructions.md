@@ -1,3 +1,7 @@
+---
+description: Read this before creating or modifying UI components in the project.
+---
+
 # UI Components Guidelines
 
 ## Overview
@@ -93,7 +97,7 @@ export function MyFeature() {
 
 ## Quick Reference
 
-- **Documentation:** [https://ui.shadcn.com]
+- **Documentation:** https://ui.shadcn.com
 - **Component Location:** `components/ui/`
 - **Configuration:** `components.json`
 - **Installation Command:** `npx shadcn@latest add [component]`

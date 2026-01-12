@@ -19,7 +19,7 @@ const DashboardPage = async () => {
   const userLinks = await getUserLinks(userId);
 
   return (
-    <main className='container mx-auto py-8'>
+    <main className='container mx-auto p-8'>
       <div className='mb-8'>
         <h1 className='text-3xl font-bold mb-2'>Dashboard</h1>
         <p className='text-muted-foreground'>Manage your shortened links</p>
