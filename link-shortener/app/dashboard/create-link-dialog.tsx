@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'sonner';
+import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -14,40 +16,38 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { createLink } from './actions';
-import { Plus } from 'lucide-react';
 
 export function CreateLinkDialog() {
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState('');
   const [customSlug, setCustomSlug] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setSuccess(false);
     setLoading(true);
 
     try {
       const result = await createLink({ url, customSlug });
 
       if (result.error) {
-        setError(result.error);
+        toast.error('Failed to create link', {
+          description: result.error,
+        });
       } else if (result.success) {
-        setSuccess(true);
+        toast.success('Link created successfully!', {
+          description: 'Your shortened link is ready to use.',
+        });
         // Reset form
         setUrl('');
         setCustomSlug('');
-        // Close dialog after a brief delay to show success state
-        setTimeout(() => {
-          setOpen(false);
-          setSuccess(false);
-        }, 1000);
+        setOpen(false);
       }
-    } catch (err) {
-      setError('An unexpected error occurred');
+    } catch (error) {
+      console.error(error);
+      toast.error('An unexpected error occurred', {
+        description: 'Please try again later.',
+      });
     } finally {
       setLoading(false);
     }
@@ -59,8 +59,6 @@ export function CreateLinkDialog() {
       // Reset form state when closing
       setUrl('');
       setCustomSlug('');
-      setError('');
-      setSuccess(false);
     }
   };
 
@@ -72,7 +70,7 @@ export function CreateLinkDialog() {
           Create Link
         </Button>
       </DialogTrigger>
-      <DialogContent className='sm:max-w-[525px]'>
+      <DialogContent className='sm:max-w-131.25'>
         <DialogHeader>
           <DialogTitle>Create Shortened Link</DialogTitle>
           <DialogDescription>
@@ -112,16 +110,6 @@ export function CreateLinkDialog() {
                 Leave empty to auto-generate a short code
               </p>
             </div>
-            {error && (
-              <div className='text-sm text-red-500 bg-red-50 border border-red-200 rounded p-3'>
-                {error}
-              </div>
-            )}
-            {success && (
-              <div className='text-sm text-green-600 bg-green-50 border border-green-200 rounded p-3'>
-                Link created successfully!
-              </div>
-            )}
           </div>
           <DialogFooter>
             <Button

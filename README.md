@@ -56,3 +56,42 @@ npm run test:coverage
 
 - Username: `imamovickerim` | Password: `123456`
 - Username: `johndoe` | Password: `123456`
+
+#### 03 Link Shortener (folder link-shortener)
+
+Modern full-stack URL shortening service built with Next.js 15 featuring:
+
+- URL shortening with unique shortcodes
+- User authentication with Clerk
+- Dashboard for managing shortened links
+- CRUD operations (Create, Read, Update, Delete links)
+- Fast redirect system
+- Dark/Light theme toggle with system preference support
+- PostgreSQL database hosted on Neon
+- Drizzle ORM for database operations
+- Toast notifications with Sonner
+- Responsive design with Shadcn UI and Tailwind CSS
+- Form validation with React Hook Form and Zod
+- TypeScript for type safety
+
+**Tech Stack:**
+
+- Frontend: Next.js 16, React, TypeScript
+- Styling: Tailwind CSS, Shadcn UI
+- Authentication: Clerk
+- Database: PostgreSQL (Neon)
+- ORM: Drizzle ORM
+
+Original GitHub Repository: [https://github.com/tomphill/linkshortenerproject]
+
+**Getting Started:**
+
+```bash
+cd link-shortener
+npm install
+# Configure .env file with Clerk and Neon credentials (see example.env)
+npm run db:push
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the application.

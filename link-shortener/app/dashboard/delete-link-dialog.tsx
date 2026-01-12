@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'sonner';
+import { Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -12,7 +14,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { deleteLink } from './actions';
-import { Trash2 } from 'lucide-react';
 
 interface DeleteLinkDialogProps {
   linkId: number;
@@ -22,22 +23,28 @@ interface DeleteLinkDialogProps {
 export function DeleteLinkDialog({ linkId, shortCode }: DeleteLinkDialogProps) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
   const handleDelete = async () => {
-    setError('');
     setLoading(true);
 
     try {
       const result = await deleteLink({ linkId });
 
       if (result.error) {
-        setError(result.error);
+        toast.error('Failed to delete link', {
+          description: result.error,
+        });
       } else if (result.success) {
+        toast.success('Link deleted successfully!', {
+          description: 'The link has been permanently removed.',
+        });
         setOpen(false);
       }
-    } catch (err) {
-      setError('An unexpected error occurred');
+    } catch (error) {
+      console.error(error);
+      toast.error('An unexpected error occurred', {
+        description: 'Please try again later.',
+      });
     } finally {
       setLoading(false);
     }
@@ -45,9 +52,6 @@ export function DeleteLinkDialog({ linkId, shortCode }: DeleteLinkDialogProps) {
 
   const handleOpenChange = (newOpen: boolean) => {
     setOpen(newOpen);
-    if (!newOpen) {
-      setError('');
-    }
   };
 
   return (
@@ -57,7 +61,7 @@ export function DeleteLinkDialog({ linkId, shortCode }: DeleteLinkDialogProps) {
           <Trash2 className='h-4 w-4' />
         </Button>
       </DialogTrigger>
-      <DialogContent className='sm:max-w-[425px]'>
+      <DialogContent className='sm:max-w-106.25'>
         <DialogHeader>
           <DialogTitle>Delete Link</DialogTitle>
           <DialogDescription>
@@ -65,11 +69,6 @@ export function DeleteLinkDialog({ linkId, shortCode }: DeleteLinkDialogProps) {
             <span className='font-semibold'>{shortCode}</span>? This action cannot be undone.
           </DialogDescription>
         </DialogHeader>
-        {error && (
-          <div className='text-sm text-red-500 bg-red-50 border border-red-200 rounded p-3'>
-            {error}
-          </div>
-        )}
         <DialogFooter>
           <Button type='button' variant='outline' onClick={() => setOpen(false)} disabled={loading}>
             Cancel
