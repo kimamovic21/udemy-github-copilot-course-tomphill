@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { CreateLinkDialog } from './create-link-dialog';
 import { EditLinkDialog } from './edit-link-dialog';
 import { DeleteLinkDialog } from './delete-link-dialog';
+import Link from 'next/link';
 
 export default async function DashboardPage() {
   const { userId } = await auth();
@@ -35,7 +36,15 @@ export default async function DashboardPage() {
               <CardHeader>
                 <div className='flex items-start justify-between'>
                   <div className='flex-1 min-w-0'>
-                    <CardTitle className='text-xl break-all'>{link.shortCode}</CardTitle>
+                    <Link 
+                      href={`/l/${link.shortCode}`} 
+                      target='_blank'
+                      className='hover:underline'
+                    >
+                      <CardTitle className='text-xl break-all text-blue-600 hover:text-blue-800'>
+                        {link.shortCode}
+                      </CardTitle>
+                    </Link>
                     <CardDescription className='break-all'>{link.originalUrl}</CardDescription>
                   </div>
                   <div className='flex items-center gap-2 ml-4'>
