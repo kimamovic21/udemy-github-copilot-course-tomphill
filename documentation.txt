@@ -375,3 +375,13 @@ Section 04: Database interactions with GitHub Copilot chat
 -open files sonner.tsx and auth-sonner.tsx
 -open route: http://localhost:3000
 -open route: http://localhost:3000/dashboard
+
+
+26. Build out dashboard page + official way to create GiHub Copilot instructions
+
+-in component dashboard/page.tsx import card components from component card.tsx
+-import instance db, variable links and eq function
+-create function getUserLinks()
+-create variable const userLinks
+-in jsx add card components and elements with Tailwind CSS classes
+-open route: http://localhost:3000/dashboard
