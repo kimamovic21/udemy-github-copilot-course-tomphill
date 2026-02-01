@@ -21,8 +21,8 @@ const HomePage = async () => {
           Shorten Your Links, Amplify Your Reach
         </h1>
         <p className='text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto'>
-          Create short, memorable links in seconds. Track performance, manage your URLs, and share
-          with confidence.
+          Create short, memorable links in seconds. Manage your URLs in one place with a clean,
+          secure dashboard.
         </p>
         <div className='flex gap-4 justify-center'>
           <SignUpButton mode='modal'>
@@ -36,7 +36,7 @@ const HomePage = async () => {
       {/* Features Section */}
       <section id='features' className='container mx-auto px-4 py-20'>
         <h2 className='text-3xl md:text-4xl font-bold text-center mb-12'>
-          Powerful Features for Modern Link Management
+          Simple, Practical Features for Link Management
         </h2>
         <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
           {/* Feature 1: URL Shortening */}
@@ -49,17 +49,17 @@ const HomePage = async () => {
               </div>
               <CardTitle>Quick URL Shortening</CardTitle>
               <CardDescription className='mt-2'>
-                Transform long URLs into short, branded links instantly
+                Turn long URLs into short links in a few clicks
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className='text-sm text-muted-foreground'>
-                Create concise, shareable links that are easy to remember and type.
+                Generate compact links that are easy to share and copy.
               </p>
             </CardContent>
           </Card>
 
-          {/* Feature 2: Analytics */}
+          {/* Feature 2: Custom Slugs */}
           <Card className='text-center hover:shadow-lg transition-shadow'>
             <CardHeader>
               <div className='flex justify-center mb-4'>
@@ -67,19 +67,19 @@ const HomePage = async () => {
                   <BarChart3 className='h-8 w-8 text-green-600 dark:text-green-400' />
                 </div>
               </div>
-              <CardTitle>Link Analytics</CardTitle>
+              <CardTitle>Custom Short Codes</CardTitle>
               <CardDescription className='mt-2'>
-                Track clicks, views, and performance metrics in real-time
+                Choose a custom short code when you want it
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className='text-sm text-muted-foreground'>
-                Gain insights into how your links perform with detailed analytics.
+                Make links easier to recognize with a short, readable slug.
               </p>
             </CardContent>
           </Card>
 
-          {/* Feature 3: Secure Management */}
+          {/* Feature 3: Link Management */}
           <Card className='text-center hover:shadow-lg transition-shadow'>
             <CardHeader>
               <div className='flex justify-center mb-4'>
@@ -87,19 +87,19 @@ const HomePage = async () => {
                   <Lock className='h-8 w-8 text-purple-600 dark:text-purple-400' />
                 </div>
               </div>
-              <CardTitle>Secure Management</CardTitle>
+              <CardTitle>Edit and Organize</CardTitle>
               <CardDescription className='mt-2'>
-                Manage all your links with authenticated, secure access
+                Update or remove links from your dashboard
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className='text-sm text-muted-foreground'>
-                Keep your links organized and secure with user authentication.
+                Keep your list tidy as your links change over time.
               </p>
             </CardContent>
           </Card>
 
-          {/* Feature 4: Easy Sharing */}
+          {/* Feature 4: Secure Access */}
           <Card className='text-center hover:shadow-lg transition-shadow'>
             <CardHeader>
               <div className='flex justify-center mb-4'>
@@ -107,14 +107,14 @@ const HomePage = async () => {
                   <Share2 className='h-8 w-8 text-orange-600 dark:text-orange-400' />
                 </div>
               </div>
-              <CardTitle>Flexible Sharing</CardTitle>
+              <CardTitle>Secure Access</CardTitle>
               <CardDescription className='mt-2'>
-                Share links publicly or keep them private as needed
+                Sign in to manage your links safely
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className='text-sm text-muted-foreground'>
-                Control who can access your links with public or private settings.
+                Your dashboard is protected with authenticated access.
               </p>
             </CardContent>
           </Card>
