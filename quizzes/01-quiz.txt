@@ -1,0 +1,72 @@
+Quiz 1: Test your knowledge of GitHub Copilot
+
+
+Question 1:
+How can context be provided inline within GitHub Copilot Chat?
+
+Answer:
+The # symbol
+
+
+Question 2:
+When using comment-driven prompts, which prompt is the most effective?
+
+Answer:
+An array of 20 cars, with the properties id, model and manufacturer
+
+
+Question 3:
+What's the general recommendation for generating secure code in GitHub Copilot?
+
+Answer:
+Adding extra information to a prompt, like "Highlight any potential vulnerabilities or security concerns in your output, and provide solutions to those vulnerabilities".
+Additionally it's always important to double check code that's generated using GitHub Copilot for any potential vulnerabilities or security concerns
+
+
+Question 4:
+Can GitHub Copilot Chat be used on mobile?
+
+Answer:
+Yes, via the GitHub mobile app
+
+
+Question 5:
+What are the different modes available by default in GitHub Copilot Chat?
+
+Answer:
+Agent, Plan, Ask, Edit
+
+
+Question 6:
+Assuming we're unsure about how something should be coded, or we're unsure about how to do certain things in a specific framework, is there anything we can do before we prompt GitHub Copilot chat to start generating code?
+
+Answer:
+Yes - it's always a good idea to ask GitHub Copilot chat if there's an existing way of accomplishing something in the framework we're working with
+
+
+Question 7:
+Can GitHub Copilot assist with terminal commands?
+
+Answer:
+Yes, via the @terminal chat participant in GitHub Copilot chat
+
+
+Question 8:
+Which command allows us to create tests for a selection of code using GitHub Copilot Chat?
+
+Answer:
+@workspace /tests
+
+
+Question 9:
+What is the primary advantage of using GitHub Copilot Chat inside an IDE instead of the GitHub website?
+
+Answer:
+It understands the current file, cursor position, and workspace context
+
+
+Question 10:
+What does MCP stand for?
+
+Answer:
+Model Context Protocol
