@@ -377,7 +377,7 @@ Section 04: Database interactions with GitHub Copilot chat
 -open route: http://localhost:3000/dashboard
 
 
-26. Build out dashboard page + official way to create GiHub Copilot instructions
+26. Build out dashboard page + official way to create GitHub Copilot instructions
 
 -in component dashboard/page.tsx import card components from component card.tsx
 -import instance db, variable links and eq function
@@ -434,3 +434,33 @@ Code refactoring + README.md file update
 -update README.md for for project link-shortener
 -refactor Tailwind CSS classes in tsx components
 -in dialog components import function toast
+
+
+
+Section 05: Extras
+
+
+31. GitHub Copilot CLI
+
+-open link: https://github.com/features/copilot/cli
+-open link: https://github.com/github/copilot-cli
+-open link: https://www.npmjs.com/package/@github/copilot
+-type command: npm i -g @github/copilot
+-type command: copilot
+-type command: copilot --banner
+-answer with yes on Copilot questions
+-open link: https://github.com/login/device
+-type code from terminal
+-type command: /model
+-select your model
+-click shift + tab on your keyboard
+-type command: /agent
+-open link: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents
+-type command: @link-shortener\app\globals.css @link-shortener\components\ui\button.tsx  
+-type prompt to update button color
+-approve Copilot CLI changes
+-check updated files
+-type command: /context
+-type command: /clear
+-type command: /new
+-type command: /context
