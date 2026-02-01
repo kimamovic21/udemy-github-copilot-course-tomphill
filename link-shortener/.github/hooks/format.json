@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "bash": "npx prettier --write .",
+        "description": "Running Prettier to format code"
+      }
+    ]
+  }
+}

@@ -464,3 +464,12 @@ Section 05: Extras
 -type command: /clear
 -type command: /new
 -type command: /context
+
+
+32. Hooks with GitHub Copilot CLI
+
+-open link: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks
+-in folder .github create folder hooks and format.json file
+-in format.js file add object hooks
+-in Copilot CLI type command to update app/page.tsx based on prettier extension
+-type command: /diff
