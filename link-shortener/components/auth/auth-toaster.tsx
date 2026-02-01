@@ -24,7 +24,7 @@ export function AuthToaster() {
     // User signed in - show toast only once per user
     if (isSignedIn && !prevSignedIn.current && user) {
       if (toastShownForUser.current !== user.id) {
-        const isNewAccount = Date.now() - user.createdAt < 60000; // 60 seconds
+        const isNewAccount = user.createdAt ? Date.now() - user.createdAt.getTime() < 60000 : false; // 60 seconds
 
         if (isNewAccount) {
           toast.success('Account created successfully!');

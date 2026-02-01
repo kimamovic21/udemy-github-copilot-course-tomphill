@@ -8,6 +8,7 @@ import {
   deleteLink as deleteLinkHelper,
 } from "@/data/links";
 import { revalidatePath } from "next/cache";
+import { nanoid } from "nanoid";
 
 const createLinkSchema = z.object({
   url: z.string().url("Please enter a valid URL"),
@@ -122,12 +123,15 @@ export async function updateLink(
     const customSlug =
       validated.customSlug === "" ? undefined : validated.customSlug;
 
+    // Generate shortCode if customSlug is not provided
+    const shortCode = customSlug || nanoid(8);
+
     // Update link via helper function
     const updatedLink = await updateLinkHelper(
       validated.linkId,
       userId,
       validated.url,
-      customSlug
+      shortCode
     );
 
     if (!updatedLink) {
