@@ -476,3 +476,14 @@ Section 05: Extras
 
 
 Quiz 1: Test your knowledge of GitHub Copilot
+
+
+Project Link Shortener Deployment
+
+-open terminal and type command: npm run build
+-open link: https://vercel.com
+-add new project
+-add project name
+-add .env variables
+-select folder link-shortener
+-fix deployment errors
