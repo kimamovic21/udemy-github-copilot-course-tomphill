@@ -473,3 +473,6 @@ Section 05: Extras
 -in format.js file add object hooks
 -in Copilot CLI type command to update app/page.tsx based on prettier extension
 -type command: /diff
+
+
+Quiz 1: Test your knowledge of GitHub Copilot
