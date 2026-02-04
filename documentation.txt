@@ -475,6 +475,12 @@ Section 05: Extras
 -type command: /diff
 
 
+33. Detect insecure code with GitHub Copilot Chat
+
+-in folder prompts create security-audit.prompt.md file
+-open Copilot Chat and type command: /security-audit
+
+
 Quiz 1: Test your knowledge of GitHub Copilot
 
 
