@@ -1,6 +1,6 @@
 import { db } from '@/db';
 import { links, type Link, type NewLink } from '@/db/schema';
-import { eq, desc } from 'drizzle-orm';
+import { and, eq, desc } from 'drizzle-orm';
 import { nanoid } from 'nanoid';
 
 /**
@@ -62,7 +62,7 @@ export async function updateLink(
       shortCode,
       updatedAt: new Date(),
     })
-    .where(eq(links.id, linkId))
+    .where(and(eq(links.id, linkId), eq(links.userId, userId)))
     .returning();
 
   return updatedLink;
@@ -86,7 +86,10 @@ export async function getLinkByShortCode(shortCode: string): Promise<Link | null
  * @returns The deleted link
  */
 export async function deleteLink(linkId: number, userId: string): Promise<Link> {
-  const [deletedLink] = await db.delete(links).where(eq(links.id, linkId)).returning();
+  const [deletedLink] = await db
+    .delete(links)
+    .where(and(eq(links.id, linkId), eq(links.userId, userId)))
+    .returning();
 
   return deletedLink;
 }
