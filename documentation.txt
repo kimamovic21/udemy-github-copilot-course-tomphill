@@ -481,6 +481,12 @@ Section 05: Extras
 -open Copilot Chat and type command: /security-audit
 
 
+34. Sub agents with GitHub Copilot Chat
+
+-add a prompt for fixing security issues in folder link-shortener
+-export GitHub Copilot Chat as .json file
+
+
 Quiz 1: Test your knowledge of GitHub Copilot
 
 
