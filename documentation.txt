@@ -475,13 +475,26 @@ Section 05: Extras
 -type command: /diff
 
 
-33. Detect insecure code with GitHub Copilot Chat
+33. Extending the postToolUse hook logic with GitHub Copilot CLI
+
+-update format.json file
+-create tool-output.json file
+-create format-on-edit.sh file
+-open terminal and type command: copilot
+-open GitHub Copilot CLI and type command for updating the bash property in tool-output.json file
+-allow code update
+-restart Github Copilot after adding a new one
+-add a prompt to create folder test with component page.tsx
+-open folder tmp to see generated .json files
+
+
+34. Detect insecure code with GitHub Copilot Chat
 
 -in folder prompts create security-audit.prompt.md file
 -open Copilot Chat and type command: /security-audit
 
 
-34. Sub agents with GitHub Copilot Chat
+35. Sub agents with GitHub Copilot Chat
 
 -add a prompt for fixing security issues in folder link-shortener
 -export GitHub Copilot Chat as .json file
