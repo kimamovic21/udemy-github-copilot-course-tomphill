@@ -1,11 +1,10 @@
 {
   "version": 1,
   "hooks": {
-    "preToolUse": [
+    "postToolUse": [
       {
         "type": "command",
-        "bash": "npx prettier --write .",
-        "description": "Running Prettier to format code"
+        "bash": ".github/hooks/format-on-edit.sh"
       }
     ]
   }

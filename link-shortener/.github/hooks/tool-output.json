@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": "$timestamp = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds(); $input | Out-File -FilePath \"tmp/$timestamp.json\" -Encoding utf8"
+      }
+    ]
+  }
+}
